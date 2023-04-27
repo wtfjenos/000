@@ -244,7 +244,8 @@ main > article > .article-nav-section > .article-nav-button {
 
 main > article > .article-nav-section > .article-nav-button:hover {
   background-color: rgba(255, 255, 255, 0.02);
-}
+} 
+
 
 main > article > .article-nav-section > .article-nav-button:nth-child(2) {
   border-left: 1px solid var(--border-color);
@@ -411,6 +412,23 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
   object-position: 100% center;
 }
 
+.cursor {  
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  transition: 0.0001s;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+
+:hover ∿ .cursor {
+  transform: scale(6);
+}
+
 </style>
 </head>
 <body>
@@ -428,7 +446,7 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
     </div>
     <div id="nav-social-section" class="nav-section">
       <a href="https://www.instagram.com/wtfjenos/">
-        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
       </a>
       <a href="" target="_blank">
         <i class="fa-brands fa-youtube"></i>
@@ -527,6 +545,24 @@ main > article > .article-nav-section > .article-nav-button:nth-child(2) {
       </button>
     </div>
   </article>
+    <div class="cursor"></div>
+    <script>
+document.addEventListener("mousemove", function(event) {
+  const x = event.pageX - 0;
+  const y = event.pageY - 0;
+  const cursor = document.querySelector(".cursor");
+  cursor.style.left = x + "px";
+  cursor.style.top = y + "px";
+});
+
+$('button').on("mouseover", function(){
+  $('.cursor').css({'transform': 'scale(2)'});
+});
+
+$('button').on("mouseleave", function(){
+  $('.cursor').css({'transform': 'scale(1)'});
+});
+    </script>
 </main>
 </body>
 </html>
