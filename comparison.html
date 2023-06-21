@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html>
+<style>
+    :root {
+        --background-color: rgb(6, 11, 25);
+        --highlight-color: rgb(126, 87, 194);
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+
+    section {
+        margin-bottom: 60px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    li {
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: calc((100% - 40px) / 3);
+    }
+
+        li:last-child {
+            margin-right: 0;
+        }
+
+    h3 {
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: var(--background-color);
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit] {
+        background-color: var(--background-color);
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+        }
+
+
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 10px;
+    }
+
+
+    .column {
+        float: left;
+        width: 50%;
+        margin-top: 6px;
+        padding: 20px;
+    }
+
+
+    .row:after {
+        content: "";
+        display: flex;
+        clear: both;
+    }
+
+
+    @media screen and (max-width: 600px) {
+        .column, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        transition: 0.0001s;
+        transform: translate(-50%,-50%);
+        pointer-events: none;
+        mix-blend-mode: difference;
+    }
+
+
+    :hover ∿ .cursor {
+        transform: scale(6);
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+        a:hover {
+            color: var(--highlight-color);
+        }
+
+    .ahjaj {
+        text-decoration: none;
+        color: black;
+    }
+
+    table, th, td {
+        
+    }
+</style>
+<head>
+    <title>Feedback</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div style="text-align:center">
+                <h2>Comparison with other companies</h2>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <img src="architektura1.jpg" style="width:75%">
+                </div>
+                <div class="tabulka">
+                    <table style="width:50%">
+                        <tr>
+                            <th></th>
+                            <th><a class="ahjaj " href="index.html">Our company</a></th>
+                            <th><a class="ahjaj " href="https://limaeurope.com">Lima</a></th>
+                            <th><a class="ahjaj " href="https://www.minusplus.hu">MinusPlus</a></th>
+                        </tr>
+                        <tr>
+                            <td>Projects</td>
+                            <td>231</td>
+                            <td>98</td>
+                            <td>123</td>
+                        </tr>
+                        <tr>
+                            <td>Successful</td>
+                            <td>230</td>
+                            <td>91</td>
+                            <td>112</td>
+                        </tr>
+                        <tr>
+                            <td>Since</td>
+                            <td>2001</td>
+                            <td>2013</td>
+                            <td>2011</td>
+                        </tr>
+                        <tr>
+                            <td>DKS</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>SPWH</td>
+                            <td>33</td>
+                            <td>21</td>
+                            <td>32</td>
+                        </tr>
+                        <tr>
+                            <td>RND</td>
+                            <td>20</td>
+                            <td>9</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>DKS</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>SPWH</td>
+                            <td>33</td>
+                            <td>21</td>
+                            <td>32</td>
+                        </tr>
+                        <tr>
+                            <td>RND</td>
+                            <td>20</td>
+                            <td>9</td>
+                            <td>12</td>
+                        </tr>
+                    </table>
+                </div>
+                <button><a href="index.html"> HOME </a></button>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("mousemove", function (event) {
+                const x = event.pageX - 0;
+                const y = event.pageY - 0;
+                const cursor = document.querySelector(".cursor");
+                cursor.style.left = x + "px";
+                cursor.style.top = y + "px";
+            });
+
+            $('button class="article-nav-button"').on("mouseover", function () {
+                $('.cursor').css({ 'transform': 'scale(2)' });
+            });
+
+            $('button class="article-nav-button"').on("mouseleave", function () {
+                $('.cursor').css({ 'transform': 'scale(1)' });
+            });
+        </script>
+    </main>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <style>
+        :root {
+            --background-color: rgb(6, 11, 25);
+            --border-color: rgb(255, 255, 255, 0.1);
+            --highlight-color: rgb(126, 87, 194);
+            --yt-color: rgb(229, 57, 53);
+        }
+
+        body {
+            background-color: var(--background-color);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3, a, p, span {
+            font-family: "Rubik", sans-serif;
+            font-weight: 400;
+            color: white;
+            margin: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+            a:hover {
+                color: var(--highlight-color);
+            }
+
+        nav {
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+            nav .nav-section {
+                padding: 3rem 2rem;
+                display: flex;
+                gap: 1rem;
+                border-left: 1px solid var(--border-color);
+                align-items: center;
+                justify-content: center;
+            }
+
+        #nav-mobile-section {
+            display: flex;
+            flex-basis: calc(100% * (2 / 3));
+            z-index: 2;
+        }
+
+        #nav-toggle-button {
+            align-items: center;
+            background-color: transparent;
+            border: none;
+            border-left: 1px solid var(--border-color);
+            color: white;
+            cursor: pointer;
+            display: none;
+            gap: 0.8rem;
+            height: 100%;
+            justify-content: center;
+            outline: none;
+            padding: 0rem 3rem;
+            position: relative;
+            z-index: 3;
+        }
+
+            #nav-toggle-button:hover,
+            #nav-toggle-button:hover > span {
+                color: var(--highlight-color);
+            }
+
+            #nav-toggle-button > span,
+            #nav-toggle-button > i {
+                display: inline-block;
+                height: 1rem;
+                line-height: 1rem;
+            }
+
+        #nav-social-section,
+        #nav-contact-section {
+            flex-grow: 1;
+        }
+
+        #nav-logo-section {
+            flex-basis: calc(100% / 3);
+            justify-content: flex-start;
+        }
+
+            #nav-logo-section > a > i {
+                font-size: 2.5rem;
+            }
+
+        #nav-link-section {
+            flex-basis: 50%;
+            gap: 6rem;
+        }
+
+        #nav-social-section {
+            gap: 3rem;
+        }
+
+        main {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+            main > article {
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 2fr 1fr;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                transition: transform 400ms ease;
+            }
+
+                main > article[data-status="inactive"] {
+                    transform: translateX(-100%);
+                    transition: none;
+                }
+
+                main > article[data-status="active"] {
+                    transform: translateX(0%);
+                }
+
+                main > article[data-status="before"] {
+                    transform: translateX(-100%);
+                }
+
+                main > article[data-status="after"] {
+                    transform: translateX(100%);
+                }
+
+                main > article[data-status="becoming-active-from-before"] {
+                    transform: translateX(-100%);
+                    transition: none;
+                }
+
+                main > article[data-status="becoming-active-from-after"] {
+                    transform: translateX(100%);
+                    transition: none;
+                }
+
+                main > article > .article-section {
+                    height: 100%;
+                    display: flex;
+                }
+
+                main > article > .article-description-section,
+                main > article > .article-nav-section {
+                    border-left: 1px solid var(--border-color);
+                }
+
+                main > article > .article-title-section,
+                main > article > .article-nav-section {
+                    border-top: 1px solid var(--border-color);
+                }
+
+                main > article:first-child > .article-image-section {
+                    background-image: url("2022_FSD_MasterOfArchitecture_GettyImages-992782718.jpg");
+                }
+
+                main > article:nth-child(2) > .article-image-section {
+                    background-image: url("https://images.adsttc.com/media/images/55f1/96b3/99e9/ba84/3d00/002f/slideshow/122-sda-keelung-elevation-01.jpg?1441896082");
+                }
+
+                main > article:nth-child(3) > .article-image-section {
+                    background-image: url("1920x1080-569180-architecture.jpg");
+                }
+
+                main > article:nth-child(4) > .article-image-section {
+                    background-image: url("580625-architecture.jpg");
+                }
+
+                main > article > .article-image-section {
+                    background-position: center;
+                    background-size: cover;
+                }
+
+                main > article > .article-description-section {
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    padding: 4rem;
+                }
+
+                    main > article > .article-description-section > p {
+                        color: rgba(255, 255, 255, 0.5);
+                        font-size: 1.25em;
+                    }
+
+                        main > article > .article-description-section > p > a:hover {
+                            text-decoration: underline;
+                        }
+
+                main > article > .article-title-section {
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 2rem 4rem;
+                }
+
+                    main > article > .article-title-section * {
+                        color: white;
+                    }
+
+                    main > article > .article-title-section > h2 {
+                        flex-basis: 50%;
+                        font-family: "Montserrat", sans-serif;
+                        font-size: 3.5rem;
+                        line-height: 3rem;
+                        margin: 0px;
+                        text-transform: uppercase;
+                    }
+
+                    main > article > .article-title-section > i {
+                        color: rgba(255, 255, 255, 0.75);
+                        font-size: 4rem;
+                    }
+
+                main > article > .article-nav-section > .article-nav-button {
+                    background-color: transparent;
+                    flex-grow: 1;
+                    border: none;
+                    outline: none;
+                    color: rgba(255, 255, 255, 0.75);
+                    font-size: 3rem;
+                    cursor: pointer;
+                }
+
+                    main > article > .article-nav-section > .article-nav-button:hover {
+                        background-color: rgba(255, 255, 255, 0.02);
+                    }
+
+
+                    main > article > .article-nav-section > .article-nav-button:nth-child(2) {
+                        border-left: 1px solid var(--border-color);
+                    }
+
+        @media(max-width: 1200px) {
+            #nav-mobile-section {
+                flex-basis: calc(100% * 0.75);
+            }
+
+            #nav-logo-section {
+                flex-basis: calc(100% * 0.25);
+            }
+
+            #nav-link-section {
+                flex-basis: calc(100% / 3);
+                gap: 3rem;
+            }
+
+            main {
+                overflow-y: auto;
+            }
+
+                main > article {
+                    grid-template-columns: none;
+                    grid-template-rows: 1.5fr repeat(3, 0.75fr) 0.25fr;
+                    height: max(900px, 100%);
+                }
+
+                    main > article > .article-title-section > h2 {
+                        font-size: 3rem;
+                        line-height: 2.6rem;
+                    }
+
+                    main > article > .article-title-section > i {
+                        font-size: 3rem;
+                    }
+
+                    main > article > .article-description-section,
+                    main > article > .article-nav-section {
+                        border-left: none;
+                    }
+
+                    main > article > .article-image-section {
+                        order: 1;
+                    }
+
+                    main > article > .article-title-section {
+                        border-bottom: 1px solid var(--border-color);
+                        order: 2;
+                    }
+
+                    main > article > .article-description-section {
+                        justify-content: center;
+                        order: 3;
+                    }
+
+                    main > article > .article-nav-section {
+                        border-bottom: 1px solid var(--border-color);
+                        order: 4;
+                    }
+        }
+
+        @media(max-width: 800px) {
+            nav {
+                justify-content: space-between;
+            }
+
+                nav[data-toggled="true"] > #nav-mobile-section {
+                    transform: translateY(0%);
+                }
+
+                nav[data-toggled="true"] > #nav-toggle-button {
+                    border-left: none;
+                }
+
+                nav[data-transitionable="true"] > #nav-mobile-section {
+                    transition: transform 400ms ease;
+                }
+
+                nav .nav-section {
+                    border-left: none;
+                    padding: 1.5rem 1rem;
+                }
+
+            #nav-logo-section > a > i {
+                font-size: 1.5rem;
+                margin-left: 1rem;
+            }
+
+            #nav-mobile-section {
+                background-color: var(--background-color);
+                flex-direction: column;
+                height: 100vh;
+                width: 100vw;
+                position: fixed;
+                transform: translateY(-100%);
+            }
+
+            #nav-toggle-button {
+                display: flex;
+            }
+
+            #nav-link-section {
+                flex-basis: 60%;
+                flex-direction: column;
+                gap: 4rem;
+            }
+
+                #nav-link-section > a {
+                    font-size: 3rem;
+                }
+
+            #nav-social-section > a {
+                font-size: 2rem;
+            }
+
+            #nav-contact-section {
+                padding-bottom: 4rem;
+            }
+
+            main > article {
+                grid-template-rows: 1fr repeat(4, 0.5fr);
+                height: max(700px, 100%);
+            }
+
+                main > article > .article-title-section {
+                    padding: 2rem;
+                }
+
+                    main > article > .article-title-section > h2 {
+                        flex-basis: 70%;
+                        font-size: 1.75em;
+                        line-height: 1.5rem;
+                    }
+
+                    main > article > .article-title-section > i {
+                        font-size: 2rem;
+                    }
+
+                main > article > .article-description-section {
+                    padding: 2rem;
+                }
+
+                    main > article > .article-description-section > p {
+                        font-size: 1rem;
+                    }
+        }
+
+        #image-track {
+            display: flex;
+            gap: 4vmin;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(0%, -50%);
+            user-select: none; /* -- Prevent image highlighting -- */
+        }
+
+            #image-track > .image {
+                width: 40vmin;
+                height: 56vmin;
+                object-fit: cover;
+                object-position: 100% center;
+            }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            transition: 0.0001s;
+            transform: translate(-50%,-50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
+        }
+
+
+        :hover ∿ .cursor {
+            transform: scale(6);
+        }
+
+        a.icon-block {
+            display: inline-block;
+            width: 10em;
+            float: left;
+            text-align: center;
+        }
+
+            a.icon-block i,
+            a.icon-block span {
+                display: block;
+                width: 100%;
+                clear: both;
+            }
+    </style>
+    <script src="https://kit.fontawesome.com/c23d7a44b0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav data-toggled="false" data-transitionable="false">
+        <div id="nav-logo-section" class="nav-section">
+            <h2> Architectonic </h2>
+        </div>
+        <div id="nav-mobile-section">
+            <div id="nav-link-section" class="nav-section">
+                <a href="about.html">ABOUT</a>
+                <a href="index.html">HOME</a>
+            </div>
+            <div id="nav-social-section" class="nav-section">
+                <a href="https://www.instagram.com/wtfjenos/">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <div id="nav-contact-section" class="nav-section">
+                <a href="contact.html">GET IN TOUCH</a>
+            </div>
+        </div>
+        <button id="nav-toggle-button" type="button" onclick="handleNavToggle()">
+            <span>Menu</span>
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+    <script src="navig.js"></script>
+    <main>
+        <article data-index="0" data-status="active">
+            <div class="article-image-section article-section">
+            </div>
+            <div class="article-description-section article-section">
+                <h2>Unique and modern design</h2>
+                <p>
+                    is a term used to describe innovative and unconventional design concepts that depart from traditional styles and conventions.
+                    In architecture and interior design, unique modern design often features clean lines, simple shapes, and a focus on function and efficiency.
+                </p>
+            </div>
+            <div class="article-title-section article-section">
+                <h2>Modern architecture </h2>
+                    <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+        <article data-index="1" data-status="inactive">
+            <div class="article-image-section article-section"></div>
+            <div class="article-description-section article-section">
+                <h2>Mixing modern design with function and efficiency</h2>
+                <p>
+                    is a key approach used by architects to create buildings that not only look good but also serve a practical purpose.
+                    By incorporating innovative design features and energy-efficient technologies, modern architecture is helping to create a more sustainable and livable built environment.
+                </p>
+            </div>
+            <div class="article-title-section article-section">
+                <h2>Step forward in architecture</h2>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+        <article data-index="2" data-status="inactive">
+            <div class="article-image-section article-section"></div>
+            <div class="article-description-section article-section">
+                <h2>Best on market</h2>
+                <p>we are the best among other companies because
+                we combine modern design and practicality,
+                but also thanks to our team, 
+                which takes care of all problems related to design and architecture</p>
+            </div>
+            <div class="article-title-section article-section">
+                <h2>best in architecture</h2>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+        <article data-index="3" data-status="inactive">
+            <div class="article-image-section article-section"></div>
+            <div class="article-description-section article-section">
+                <a href="veci.html"><h2>BigMat International Architecture Award 2023</h2></a>
+                <p>
+                    our architects won the international 
+                    competition of architects in which dozens of architects from seven countries participated: 
+                    Belgium, the Czech Republic, Slovakia, France, Italy, Portugal and Spain.
+                </p>
+            </div>
+            <div class="article-title-section article-section">
+                <h2>WINNER OF BMIAA’23</h2>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+        <div class="cursor"></div>
+        <script>
+            document.addEventListener("mousemove", function (event) {
+                const x = event.pageX - 0;
+                const y = event.pageY - 0;
+                const cursor = document.querySelector(".cursor");
+                cursor.style.left = x + "px";
+                cursor.style.top = y + "px";
+            });
+
+            $('button').on("mouseover", function () {
+                $('.cursor').css({ 'transform': 'scale(2)' });
+            });
+
+            $('button').on("mouseleave", function () {
+                $('.cursor').css({ 'transform': 'scale(1)' });
+            });
+        </script>
+    </main>
+</body>
+</html>
